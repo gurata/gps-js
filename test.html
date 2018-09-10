@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>버튼을 눌러서 위치정보를 불러오세요</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="jsh"></p>
+
+<script>
+var x = document.getElementById("jsh");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+		
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "위도: " + position.coords.latitude + 
+    "<br>경도: " + position.coords.longitude;
+}
+
+</script>
+
+</body>
+</html>
